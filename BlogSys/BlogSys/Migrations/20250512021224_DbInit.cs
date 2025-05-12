@@ -57,8 +57,7 @@ namespace BlogSys.Migrations
                         name: "FK_Posts_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateTable(

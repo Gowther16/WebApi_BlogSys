@@ -163,13 +163,13 @@ namespace BlogSys.Migrations
 
             modelBuilder.Entity("BlogSys.Models.Post", b =>
                 {
-                    b.HasOne("BlogSys.Models.User", "Author")
+                    b.HasOne("BlogSys.Models.User", "User")
                         .WithMany("Posts")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Author");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PostTag", b =>

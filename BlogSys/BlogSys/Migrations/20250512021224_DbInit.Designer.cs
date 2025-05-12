@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogSys.Migrations
 {
     [DbContext(typeof(BlogDBContext))]
-    [Migration("20250506103639_DbInit")]
+    [Migration("20250512021224_DbInit")]
     partial class DbInit
     {
         /// <inheritdoc />
@@ -166,13 +166,13 @@ namespace BlogSys.Migrations
 
             modelBuilder.Entity("BlogSys.Models.Post", b =>
                 {
-                    b.HasOne("BlogSys.Models.User", "Author")
+                    b.HasOne("BlogSys.Models.User", "User")
                         .WithMany("Posts")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Author");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PostTag", b =>

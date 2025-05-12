@@ -18,8 +18,8 @@ namespace BlogSys.Models
         public DateTime PublishedAt { get; set; } = DateTime.UtcNow;
 
         public int UserId { get; set; }
-        public User Author { get; set; }
-
+        public User User { get; set; }
+        
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Tag> Tags { get; set; }
     }

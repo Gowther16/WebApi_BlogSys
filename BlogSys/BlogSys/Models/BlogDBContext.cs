@@ -19,11 +19,17 @@ namespace BlogSys.Models
             modelBuilder.Entity<Post>()
                 .HasMany(p => p.Comments)
                 .WithOne(c => c.Post)
-                .HasForeignKey(c => c.PostId);
-            modelBuilder.Entity<Comment>()
-                .HasOne(c => c.User)
-                .WithMany(u => u.Comments) 
+                .HasForeignKey(c => c.PostId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Comments)
+                .WithOne(c => c.User)
                 .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Posts)
+                .WithOne(p => p.User)
+                .HasForeignKey(p => p.UserId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             base.OnModelCreating(modelBuilder);
