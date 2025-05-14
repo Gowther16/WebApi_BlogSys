@@ -1,5 +1,5 @@
 # WebApi_BlogSys
-Problem 1.	Blog System Application
+Blog System Application
 
 Your task is to create REST services using ASP.NET Web API for the Blog System demo from the Code First presentation in the Databases Applications course.
 
